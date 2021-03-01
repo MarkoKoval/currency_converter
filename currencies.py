@@ -12,7 +12,8 @@ class Ccy:
             "".join(str(datetime.now()).split()[0].split('-')))).text)}
 
     def __init__(self, amount, currency):
-        if not isinstance(currency, str) or currency not in self.currency_rates or not isinstance(amount, (float, int)) or amount < 0:
+
+        if not isinstance(currency, str) or (currency not in self.currency_rates and currency != "UAH") or not isinstance(amount, float) or amount < 0:
             raise Exception("Enter correct data")
 
         self._amount = amount
@@ -24,7 +25,7 @@ class Ccy:
 
     @amount.setter
     def amount(self, count):
-        if not isinstance(count, (float, int)) or count < 0:
+        if not isinstance(count, float) or count < 0:
             raise Exception("Enter correct data")
         self._amount = count
 
@@ -34,7 +35,7 @@ class Ccy:
 
     @currency.setter
     def currency(self, name):
-        if not isinstance(name, str) or name not in self.currency_rates:
+        if not isinstance(name, str) or (name not in self.currency_rates and name != "UAH"):
             raise Exception("Enter correct data")
         self._currency = name
 

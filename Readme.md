@@ -1,0 +1,2 @@
+Currency convertor type base currency and secondary: add and subtract converted secondary to base to/from base;
+type base 0 amount to find out how many base currency you need to buy secondary selected amount; program run logs in run_log.txt
